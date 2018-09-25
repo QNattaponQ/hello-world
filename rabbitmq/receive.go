@@ -5,5 +5,5 @@ import (
 )
 
 func receive() {
-	fmt.Println("Testing recieve")
+	fmt.Println("Testing recievedddd")
 }
