@@ -10,3 +10,11 @@ rabbitmq-service.bat start
 
 #On Windows, drop the sudo:
 - rabbitmqctl.bat list_queues name messages_ready messages_unacknowledged
+
+
+#Test run program
+go run new_task.go First message.
+go run new_task.go Second message..
+go run new_task.go Third message...
+go run new_task.go Fourth message....
+go run new_task.go Fifth message.....
