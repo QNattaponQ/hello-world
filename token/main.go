@@ -1,26 +1,48 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 
 	crypt "github.com/TNCBS/encrypt-decrypt"
 )
 
 func main() {
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Enter text: ")
-	text, _ := reader.ReadString('\n')
-	fmt.Println(text)
+	var input string
+	var method string
+	fmt.Scan(&input)
+	fmt.Scan(&method)
 
-	encrypted := crypt.EncryptXOR(text, "0E&@w85hetEO7ry6")
-	fmt.Println(encrypted)
+	if method == "1" {
+		encrypted := crypt.EncryptXOR(input, "0E&@w85hetEO7ry6")
+		fmt.Println(encrypted)
 
-	decrypted, err := crypt.DecryptXOR(encrypted, "0E&@w85hetEO7ry6")
-	if err != nil {
-		fmt.Printf("%+v Decrypt Tokens AccountNo failed", err)
+		decrypted, err := crypt.DecryptXOR(encrypted, "0E&@w85hetEO7ry6")
+		if err != nil {
+			fmt.Printf("%+v Decrypt Tokens AccountNo failed", err)
+		}
+
+		fmt.Println(decrypted)
+	} else if method == "2" {
+		decrypted, err := crypt.DecryptXOR(input, "0E&@w85hetEO7ry6")
+		if err != nil {
+			fmt.Printf("%+v Decrypt Tokens AccountNo failed", err)
+		}
+
+		fmt.Println(decrypted)
 	}
 
-	fmt.Println(decrypted)
+	// part1 := input[0:3]
+	// fmt.Println(part1)
+	// part2 := input[len(input)-3 : len(input)]
+	// fmt.Println(part2)
+
+	// substring := input[3+1 : len(input)-3+1]
+	// fmt.Println(substring)
+
+	// substring = strings.Repeat("X", len(substring))
+	// fmt.Println(substring)
+
+	// concat := part1 + substring + part2
+	// fmt.Println(concat)
+
 }
